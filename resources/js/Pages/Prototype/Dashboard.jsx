@@ -22,37 +22,37 @@ export default function Dashboard() {
                 <title>Dashboard</title>
             </Head>
             {/* Featured */}
-                <div>
-                    <div className="font-semibold text-[22px] text-black mb-4">Featured Movies</div>
-                    <Flickity className="gap-[30px]" options={flickityOptions}>
-                        {[1,2,3,].map((i) => (
-                            <FeaturedMovie key={i}
-                                slug="the-batman-in-love"
-                                name={`The batman in love ${i}`}
-                                category="Action • Horror"
-                                thumbnail={`/images/featured-${i}.png`}
-                                rating={i + 1}
-                            />
-                        ))}
-                    </Flickity>
-                </div>
-                {/* /Featured */}
+            <div>
+                <div className="font-semibold text-[22px] text-black mb-4">Featured Movies</div>
+                <Flickity className="gap-[30px]" options={flickityOptions}>
+                    {[1,2,3,].map((i) => (
+                        <FeaturedMovie key={i}
+                            slug="the-batman-in-love"
+                            name={`The batman in love ${i}`}
+                            category="Action • Horror"
+                            thumbnail={`/images/featured-${i}.png`}
+                            rating={i + 1}
+                        />
+                    ))}
+                </Flickity>
+            </div>
+            {/* /Featured */}
 
-                {/* Browse */}
-                <div className="mt-[10px]">
-                    <div className="font-semibold text-[22px] text-black mb-4">Browse</div>
-                    <Flickity className="gap-[30px]" options={flickityOptions}>
-                        {[1, 2, 3, 4, 5].map(i => (
-                            <MovieCard key={i}
-                                slug="the-batman-in-love"
-                                name={`The batman in love ${i}`}
-                                category="Action • Love"
-                                thumbnail={`/images/browse-${i}.png`}
-                            />
-                        ))}
-                    </Flickity>
-                </div>
-                {/* /Browse */}
+            {/* Browse */}
+            <div className="mt-[10px]">
+                <div className="font-semibold text-[22px] text-black mb-4">Browse</div>
+                <Flickity className="gap-[30px]" options={flickityOptions}>
+                    {[1, 2, 3, 4, 5].map(i => (
+                        <MovieCard key={i}
+                            slug="the-batman-in-love"
+                            name={`The batman in love ${i}`}
+                            category="Action • Love"
+                            thumbnail={`/images/browse-${i}.png`}
+                        />
+                    ))}
+                </Flickity>
+            </div>
+            {/* /Browse */}
         </Authenticated>
     )
 }
