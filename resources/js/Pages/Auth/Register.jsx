@@ -44,7 +44,7 @@ export default function Register() {
                 <div className="py-10 flex laptopLg:ml-[680px] laptopXl:ml-[870px]">
                     <div>
                         <img src="/images/moonton-white.svg" alt="" />
-                        <div className="my-[70px]">
+                        <div className="my-[40px]">
                             <div className="font-semibold text-[26px] mb-3">
                                 Sign Up
                             </div>
@@ -63,6 +63,7 @@ export default function Register() {
                                         name="name"
                                         value={data.name}
                                         placeholder="Your fullname"
+                                        autoComplete="off"
                                         isFocused={true}
                                         handleChange={onHandleChange}
                                         required
@@ -75,6 +76,7 @@ export default function Register() {
                                         name="email"
                                         value={data.email}
                                         placeholder="Your Email Address"
+                                        autoComplete="off"
                                         handleChange={onHandleChange}
                                         required
                                     />
