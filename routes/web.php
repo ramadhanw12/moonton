@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -18,33 +19,39 @@ use Inertia\Inertia;
 
 Route::redirect('/', '/login');
 
-Route::prefix('prototype')->name('prototype.')->group(function() {
-    Route::get('login', function() {
-        return Inertia::render('Prototype/Login');
-    })->name('login');
-
-    Route::get('register', function() {
-        return Inertia::render('Prototype/Register');
-    })->name('register');
-
-    Route::get('dashboard', function() {
-        return Inertia::render('Prototype/Dashboard');
-    })->name('dashboard');
-
-    Route::get('subscription', function() {
-        return Inertia::render('Prototype/Subscription');
-    })->name('subscription');
-
-    Route::get('movie/{slug}', function() {
-        return Inertia::render('Prototype/Movie/Show');
-    })->name('movie.show');
+Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function() {
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
+    // Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show')
+    //     ->middleware('checkUserSubscription:true');
+    // Route::get('subscription', [SubscriptionController::class, 'index'])->name('subscription.index')
+    //     ->middleware('checkUserSubscription:false');
+    // Route::post('subscription/{plan}/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscription.subscribe')
+    //     ->middleware('checkUserSubscription:false');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 require __DIR__.'/auth.php';
+
+// Route::prefix('prototype')->name('prototype.')->group(function() {
+//     Route::get('login', function() {
+//         return Inertia::render('Prototype/Login');
+//     })->name('login');
+
+//     Route::get('register', function() {
+//         return Inertia::render('Prototype/Register');
+//     })->name('register');
+
+//     Route::get('dashboard', function() {
+//         return Inertia::render('Prototype/Dashboard');
+//     })->name('dashboard');
+
+//     Route::get('subscription', function() {
+//         return Inertia::render('Prototype/Subscription');
+//     })->name('subscription');
+
+//     Route::get('movie/{slug}', function() {
+//         return Inertia::render('Prototype/Movie/Show');
+//     })->name('movie.show');
+// });
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

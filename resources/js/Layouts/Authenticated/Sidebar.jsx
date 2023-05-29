@@ -11,8 +11,8 @@ export default function Sidebar({ auth }) {
 
                     {/* Menu  */}
                     <div>
-                        <div className="text-gray-1 text-sm mb-4">Menu</div>
-                        <Link href={route('prototype.dashboard')} className="side-link active">
+                        <div className="text-gray-1 text-sm mb-1">Menu</div>
+                        <Link className="side-link active">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g id="Iconly/Bulk/Home">
@@ -28,7 +28,7 @@ export default function Sidebar({ auth }) {
                     {/* Others */}
                     <div>
                         <div className="text-gray-1 side-link mb-4">Others</div>
-                        <Link href={route('prototype.subscription')} className="side-link">
+                        <Link className="side-link">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" clipRule="evenodd"
